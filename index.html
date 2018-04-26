@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<title>Pomodoro Clock</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0">
+	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body class="blue darken-4">
+	<nav class="nav transparent center flow-text" style="margin-bottom: 2rem; font-weight: bold">
+		Pomodoro Clock
+	</nav>
+
+<div class="cover row" id="root">
+	<div class="col s12 m8 offset-m2 l6 offset-l3 clock white z-depth-5 hoverable" style="padding-bottom: 2rem">
+		
+		<div class="col s12">
+			<div class="center flow-text blue-text text-darken-4">{{stateText}}</div>
+			<div class="col s5 l3 offset-l2 card center">
+				<h1 class="number grey-text darken-4" id="number" v-model="currentMinute">{{currentMinute}}</h1>
+			</div>
+			<div class="col s2 center">
+				<h1 class=" colon blue-text text-darken-4" > : </h1>
+			</div>
+			<div class="col s5 l3 card center">
+				<h1 class="number grey-text darken-4" v-model="currentSecond">{{currentSecond}}</h1>
+			</div>
+		</div>
+
+		<div class="center controls">
+			<button class="btn blue darken-4" onclick="vm.startSession()">Start</button>
+			<button class="btn red darken-4" onclick="window.location.reload()">Stop</button>
+		</div>
+
+		<div class="col s12 session">
+			<div class="col s5 offset-s1 offset-l1 work">
+				<b class="">Work time</b>
+				<br>
+				<span class="card center col s3 green"  v-on:click="vm.decrementer()">&minus;</span>
+				<span class="card center col s3" id="workTime">{{initialWork}}</span>
+				<span class="card center col s3 blue"  v-on:click="vm.incrementer()">&plus;</span>
+			</div>
+
+			<div class="relax col s5 offset-s1 offset-l1">
+				<b class="">Relaxation time</b>
+				<br>
+				<span class="card center col s3 green" v-on:click="vm.decrementer(1)">&minus;</span>
+				<span class="card center col s3" id="relaxTime">{{initialRelax}}</span>
+				<span class="card center col s3 blue" v-on:click="vm.incrementer(1)">&plus;</span>
+			</div>
+		</div>
+	</div>
+		
+	</div>
+</div>
+	
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
