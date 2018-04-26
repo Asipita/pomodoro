@@ -27,7 +27,6 @@ var vm = new Vue({
 			return;
 		},
 		startSession: function(){
-			// document.getElementById("number").style.color= 'red';
 			vm.currentMinute = vm.initialWork - 1;
 			vm.currentSecond = 59;
 			vm.stateText = 'Work time...'
@@ -42,7 +41,7 @@ var vm = new Vue({
 						vm.relaxSession();
 					}					
 				}
-			}, 200);
+			}, 1000);
 		},
 		relaxSession: function(){
 			vm.currentMinute = vm.initialRelax - 1;
@@ -59,50 +58,7 @@ var vm = new Vue({
 						vm.startSession();
 					}					
 				}
-			}, 200);
+			}, 1000);
 		}			
 	}
 })
-
-// document.getElementById("number").style.color= 'red';
-
-// startSession: function(){
-// 			console.log('[working...]')
-// 			this.minuteWork = this.initialWork -1;
-// 			this.secondWork = 59;
-
-// 			setInterval(function (){
-// 				if(vm.minuteWork < 0){	
-// 					return vm.startRelaxing()
-// 				}
-// 				vm.minuteWork -= 1;
-// 			}, 60*300);
-
-// 			setInterval(function (){
-// 				if(vm.secondWork < 1){
-// 					return vm.secondWork += 60
-// 				}
-// 				return vm.secondWork -= 1;
-// 			}, 300);
-// 		},
-
-// 		startRelaxing: function(){
-// 			console.log('[relaxing...]')
-// 			// if(!this.minuteWork) return;
-// 			this.minuteWork = this.initialRelax -1;
-// 			this.secondWork = 59;
-
-// 			setInterval(function (){
-// 				if(vm.minuteWork < 0){
-// 					return vm.startSession()
-// 				}
-// 				 return vm.minuteWork -= 1;
-// 			}, 60*100);
-
-// 			setInterval(function (){
-// 				if(vm.secondWork < 1){
-// 					return vm.secondWork += 60
-// 				}
-// 			  return vm.secondWork -= 1;
-// 			}, 300);
-// 		}
